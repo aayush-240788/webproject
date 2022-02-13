@@ -2,6 +2,7 @@ const path = require('path');
 const express = require('express');
 const app = express(); 
 const hbs = require('hbs');
+const port = process.env.PORT || 8000;
 
 const templatePath = path.join(__dirname, "./templates/views");
 const partialPath = path.join(__dirname, "./templates/partials");
@@ -20,7 +21,6 @@ app.get("/", (req, res) => {
     res.render("about", {
       name: req.query.name,
       sports: req.query.sports
-
     })
   });
 
@@ -30,6 +30,6 @@ app.get("/", (req, res) => {
     })
   });
 
-app.listen(8000, () => {
+app.listen(port, () => {
     console.log("Listening");
 });
